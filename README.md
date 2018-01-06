@@ -1,8 +1,10 @@
-# HtmlWebpackCustomHashPlugin
+# HtmlCustomHashWebpackPlugin
+
+[![NPM](https://nodei.co/npm/html-custom-hash-webpack-plugin.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/html-custom-hash-webpack-plugin)
 
 This is a [webpack](http://webpack.github.io/) plugin that works together with another plugin,
 [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin), 
-to allow you to customize the chache buster parameter for script/style assets.
+to allow you to customize the cache buster parameter for script/style assets.
 
 ### Why?
 
@@ -13,7 +15,7 @@ but there's no way to customize that value:
 <script type="text/javascript" src="/dist/bundle.js?7eb5ef5e516e47ad8364"></script>
 ```
 
-__HtmlWebpackCustomHashPlugin__ allows you to replace that random value with something specific for your build, for example:
+__HtmlCustomHashWebpackPlugin__ allows you to replace that random value with something specific for your build, for example:
 ```html
 <script type="text/javascript" src="/dist/bundle.js?rc20"></script>
 ```
@@ -31,7 +33,7 @@ and configure it with the value that you want for the hash (cache buster) parame
 
 ```js
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackCustomHashPlugin = require('html-custom-hash-webpack-plugin');
+var HtmlCustomHashWebpackPlugin = require('html-custom-hash-webpack-plugin');
 
 module.exports = {
   entry: 'index.js',
@@ -43,7 +45,7 @@ module.exports = {
       template: './index.html',
       inject: 'body'
     }),
-    new HtmlWebpackCustomHashPlugin({
+    new HtmlCustomHashWebpackPlugin({
       hash: process.env.RC_VERSION
     })
   ]
